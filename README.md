@@ -8,7 +8,7 @@
     - Pepito, Nicolas Paolo
 
 **TODO**:
-    - [ ] API and services (Charles)
-    - [ ] Documentation (Cessna)
-    - [ ] UI and Layout (Christian)
-    - [ ] Data persistence (Paolo)
+- [ ] API and services (Charles)
+- [ ] Documentation (Cessna)
+- [ ] UI and Layout (Christian)
+- [ ] Data persistence (Paolo)
