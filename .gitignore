@@ -1,4 +1,4 @@
-# Created by https://www.toptal.com/developers/gitignore/api/androidstudio,android,kotlin,linux,windows
+# Created by https://www.toptal.com/developers/gitignore/com.abgp.colorcloud.api/androidstudio,android,kotlin,linux,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=androidstudio,android,kotlin,linux,windows
 
 ### Android ###
@@ -271,4 +271,4 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
-# End of https://www.toptal.com/developers/gitignore/api/androidstudio,android,kotlin,linux,windows
+# End of https://www.toptal.com/developers/gitignore/com.abgp.colorcloud.api/androidstudio,android,kotlin,linux,windows

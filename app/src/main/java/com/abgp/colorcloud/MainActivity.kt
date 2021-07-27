@@ -2,8 +2,11 @@ package com.abgp.colorcloud
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -17,6 +20,13 @@ import com.abgp.colorcloud.databinding.ActivityMainBinding
 import com.abgp.colorcloud.services.SharedPrefServices
 import com.abgp.colorcloud.ui.auth.LoginActivity
 import com.abgp.colorcloud.ui.auth.RegisterActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
 class MainActivity : AppCompatActivity() {
 
@@ -74,4 +84,45 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    private fun getWeatherData(){
+        val rfBuilder = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .build()
+            .create(ApiInterface::class.java)
+
+        // getData() from ApiInterface
+        val rfData = rfBuilder.getData()
+
+        rfData.enqueue(object : Callback<WeatherData?> {
+            override fun onResponse(call: Call<WeatherData?>, response: Response<WeatherData?>) {
+                val resBody = response.body()!!
+
+
+                println("Response")
+                print(resBody)
+
+                Log.d("Response",resBody.toString())
+
+            }
+
+            override fun onFailure(call: Call<WeatherData?>, t: Throwable) {
+                print("Error: " + t.message)
+                Log.d("Response",t.message.toString())
+            }
+        })
+
+    }
+
+    /*
+    private fun getWeatherData(url: String) {
+        val request = Request.Builder().url(url).build()
+
+        client.newCall(request).enqueue(object: Callback {
+            override fun onFailure(call: Call, e: IOException) {}
+            override fun onResponse(call: Call, response: Response) = println(response.body?.string())
+        })
+    }*/
+
 }
