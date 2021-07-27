@@ -98,18 +98,13 @@ class MainActivity : AppCompatActivity() {
         rfData.enqueue(object : Callback<WeatherData?> {
             override fun onResponse(call: Call<WeatherData?>, response: Response<WeatherData?>) {
                 val resBody = response.body()!!
-
-
-                println("Response")
-                print(resBody)
-
-                Log.d("Response",resBody.toString())
-
+                // Search the tag in logcat
+                Log.d("Response: ",resBody.toString())
             }
 
             override fun onFailure(call: Call<WeatherData?>, t: Throwable) {
-                print("Error: " + t.message)
-                Log.d("Response",t.message.toString())
+                // Search the tag in logcat
+                Log.d("Response Err: ",t.message.toString())
             }
         })
 
