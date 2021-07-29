@@ -26,6 +26,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.abgp.colorcloud.WeatherService
+import kotlinx.coroutines.*
 
 const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
@@ -86,16 +87,19 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    private fun setWeatherData() {
+        // Fetching data from API
+        GlobalScope.launch(Dispatchers.IO) {
+            delay(6000L)
+            var resWeatherData: WeatherData = WeatherService.getWeatherData()
+            Log.d("ResMain: ",resWeatherData.toString())
+            // you can set weather Data here for the UI
+            /*
+            withContext(Dispatchers.Main){
+                loading action here to wait for all the data to be fetched
+            }*/
+        }
 
-
-    /*
-    private fun getWeatherData(url: String) {
-        val request = Request.Builder().url(url).build()
-
-        client.newCall(request).enqueue(object: Callback {
-            override fun onFailure(call: Call, e: IOException) {}
-            override fun onResponse(call: Call, response: Response) = println(response.body?.string())
-        })
-    }*/
+    }
 
 }

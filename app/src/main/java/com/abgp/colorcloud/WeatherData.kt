@@ -26,7 +26,6 @@ data class Weather(
 data class Wind(
     val speed: Double = 0.00
 )
-
 data class WeatherData(
     val cod: Int = 0,
     val coord: Coord = Coord(0.00,0.00),

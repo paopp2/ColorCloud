@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object WeatherService {
 
-    fun getWeatherData(): WeatherData {
+     suspend fun getWeatherData(): WeatherData {
         var apiResponse = WeatherData()
         val rfBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -30,7 +30,7 @@ object WeatherService {
 
         rfData.enqueue(object : Callback<WeatherData?> {
             override fun onResponse(call: Call<WeatherData?>, response: Response<WeatherData?>) {
-                val resBody = response.body()!!
+                val resBody: WeatherData = response.body()!!
                 // Search the tag in logcat
                 apiResponse = resBody
                 Log.d("apiResponse: ", apiResponse.toString())
@@ -42,7 +42,7 @@ object WeatherService {
             }
         })
         Log.d("Return apiResponse: ", apiResponse.toString())
-
+         delay(3000L)
         return apiResponse
     }
 
