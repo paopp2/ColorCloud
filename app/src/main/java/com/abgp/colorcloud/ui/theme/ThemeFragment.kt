@@ -29,7 +29,7 @@ class ThemeFragment : Fragment() {
         _binding = FragmentThemeBinding.inflate(inflater, container, false)
         val root: View = bnd.root
 
-        val textView: TextView = bnd.textGallery
+        val textView: TextView = bnd.textView2
         themeViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
