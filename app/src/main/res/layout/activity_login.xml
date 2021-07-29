@@ -10,8 +10,10 @@
         android:id="@+id/tvTemporary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginBottom="39dp"
         android:text="List of users here"
+        app:layout_constraintBottom_toTopOf="@+id/rvUsersList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,10 +22,26 @@
         android:id="@+id/btRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginBottom="128dp"
         android:text="Register"
-        app:layout_constraintStart_toStartOf="@+id/tvTemporary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvUsersList" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUsersList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="106dp"
+        android:background="@color/teal_200"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/btRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTemporary" />
 </androidx.constraintlayout.widget.ConstraintLayout>
