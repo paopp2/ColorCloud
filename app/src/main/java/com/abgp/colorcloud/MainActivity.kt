@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.abgp.colorcloud.databinding.ActivityMainBinding
+import com.abgp.colorcloud.ui.auth.LoginActivity
 import com.abgp.colorcloud.ui.auth.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
@@ -56,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.action_logout -> {
-                val intent = Intent(this, RegisterActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 true
             }
