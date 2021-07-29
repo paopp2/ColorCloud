@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mauve"
     tools:context=".ui.auth.LoginActivity">
 
     <TextView
@@ -12,7 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="82dp"
         android:layout_marginBottom="39dp"
-        android:text="List of users here"
+        android:fontFamily="sans-serif"
+        android:letterSpacing="0.01"
+        android:text="Registered User Accounts"
+        android:textColor="#FBFBFB"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rvUsersList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,10 +26,28 @@
 
     <Button
         android:id="@+id/btRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="128dp"
+        android:backgroundTint="#7A188A"
         android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvUsersList" />
+
+    <TextView
+        android:id="@+id/tvRegisterInfo"
+        android:layout_width="match_parent"
+        android:textColor="#FBFBFB"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Can't recognize any of the accounts listed above? \nRegister to get started."
+        android:textSize="13sp"
+        app:layout_constraintTop_toTopOf="@id/rvUsersList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +62,9 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="106dp"
-        android:background="@color/teal_200"
+        android:requiresFadingEdge="horizontal"
+        android:alpha="0.7"
+        android:background="@drawable/mauve"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/btRegister"
         app:layout_constraintEnd_toEndOf="parent"
