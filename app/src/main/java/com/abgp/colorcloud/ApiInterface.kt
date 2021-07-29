@@ -1,5 +1,6 @@
 package com.abgp.colorcloud
 
+import com.abgp.colorcloud.models.WeatherData
 import retrofit2.Call
 import retrofit2.http.GET
 

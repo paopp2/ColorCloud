@@ -1,22 +1,24 @@
-package com.abgp.colorcloud
+package com.abgp.colorcloud.services
 
 import android.util.Log
+import com.abgp.colorcloud.ApiInterface
+import com.abgp.colorcloud.models.WeatherData
 import kotlinx.coroutines.*
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
 const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
-object WeatherService {
+class WeatherServices {
 
     @DelicateCoroutinesApi
-    private fun fetchWeatherData(onDataFetched: ()->Unit) {
+    fun setWeatherData(onDataFetched: (weatherData: WeatherData)->Unit) {
         GlobalScope.launch(Dispatchers.IO) {
             val resWeatherData: WeatherData = getWeatherData()
             Log.d("ResMain: ",resWeatherData.toString())
 
             withContext(Dispatchers.Main){
-                onDataFetched()
+                onDataFetched(resWeatherData)
             }
         }
 
