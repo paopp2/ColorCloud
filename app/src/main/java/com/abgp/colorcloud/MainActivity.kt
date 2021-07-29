@@ -25,6 +25,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import com.abgp.colorcloud.WeatherService
 
 const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
@@ -85,30 +86,7 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun getWeatherData(){
-        val rfBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build()
-            .create(ApiInterface::class.java)
 
-        // getData() from ApiInterface
-        val rfData = rfBuilder.getData()
-
-        rfData.enqueue(object : Callback<WeatherData?> {
-            override fun onResponse(call: Call<WeatherData?>, response: Response<WeatherData?>) {
-                val resBody = response.body()!!
-                // Search the tag in logcat
-                Log.d("Response: ",resBody.toString())
-            }
-
-            override fun onFailure(call: Call<WeatherData?>, t: Throwable) {
-                // Search the tag in logcat
-                Log.d("Response Err: ",t.message.toString())
-            }
-        })
-
-    }
 
     /*
     private fun getWeatherData(url: String) {
