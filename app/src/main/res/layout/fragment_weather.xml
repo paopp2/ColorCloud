@@ -34,20 +34,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginTop="90dp"
             android:gravity="center">
 
             <TextView
                 android:id="@+id/tvAddress"
+                android:fontFamily="@font/proxima_nova_soft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
+                android:textSize="40sp"
                 android:text="CEBU, PH" />
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/tvUpdatedAt"
+                android:fontFamily="@font/proxima_nova_soft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 android:text="26 Jul 2021, 10:50 PM" />
         </LinearLayout>
 
@@ -55,37 +59,49 @@
             android:id="@+id/llOverviewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerInParent="true">
-
-            <TextView
-                android:id="@+id/tvStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:text="Clear Sky" />
-
+            android:layout_below="@+id/llAddressContainer"
+            android:layout_marginTop="29dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvTemperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="90sp"
-                android:fontFamily="@font/gotham_medium"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-thin"
-                android:text="31°C"
+                android:fontFamily="@font/gotham_medium"
+                android:text="31°c"
                 android:textSize="90sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova_soft"
+                android:textSize="30sp"
+                android:text="---------------------"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:fontFamily="@font/gotham_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:text="Clear Sky"
+                android:textSize="23sp" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tvMinTemp"
+                    android:fontFamily="@font/gotham_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Min Temp: 05:05 AM" />
@@ -96,6 +112,7 @@
 
                 <TextView
                     android:id="@+id/tvMaxTemp"
+                    android:fontFamily="@font/gotham_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Max Temp: 05:05PM" />
@@ -107,7 +124,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -147,10 +165,6 @@
                         android:textSize="14sp"
                         android:text="06:40 AM"/>
                 </LinearLayout>
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -342,5 +356,9 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
