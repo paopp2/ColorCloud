@@ -1,16 +1,14 @@
 package com.abgp.colorcloud
 
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-<<<<<<< HEAD
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
-=======
 import android.view.View
->>>>>>> d15bc8e (Add loading progress bar while fetched data not complete. Clean data classes)
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -21,7 +19,6 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.abgp.colorcloud.databinding.ActivityMainBinding
-<<<<<<< HEAD
 import com.abgp.colorcloud.services.SharedPrefServices
 import com.abgp.colorcloud.ui.auth.LoginActivity
 import com.abgp.colorcloud.ui.auth.RegisterActivity
@@ -30,10 +27,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-=======
 import kotlinx.android.synthetic.main.content_main.*
->>>>>>> d15bc8e (Add loading progress bar while fetched data not complete. Clean data classes)
 import com.abgp.colorcloud.WeatherService
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 
 const val BASE_URL = "https://api.openweathermap.org/data/2.5/"

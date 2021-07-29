@@ -21,13 +21,6 @@ object WeatherService {
         // getData() from ApiInterface
         val rfData = rfBuilder.getData()
 
-        /* USING COROUTINES
-        GlobalScope.launch(Dispatchers.IO){
-            val resBody = rfBuilder.getData().await()
-            Log.d("Response: ", resBody.toString())
-            apiResponse = resBody
-        }*/
-
         rfData.enqueue(object : Callback<WeatherData?> {
             override fun onResponse(call: Call<WeatherData?>, response: Response<WeatherData?>) {
                 val resBody: WeatherData = response.body()!!
