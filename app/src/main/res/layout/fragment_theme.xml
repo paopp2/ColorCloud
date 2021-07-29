@@ -70,15 +70,13 @@
                     android:textSize="21sp" />
 
                 <RadioButton
-                    android:id="@+id/rbDusk"
-                    android:textColor="@color/white"
-                    android:buttonTint="@color/white"
+                    android:id="@+id/rbMauve"
                     android:fontFamily="@font/proxima_nova_soft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="30dp"
                     android:paddingLeft="12dp"
-                    android:text="Dusk"
+                    android:text="Mauve"
                     android:textSize="21sp" />
 
                 <RadioButton
@@ -155,7 +153,6 @@
 
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

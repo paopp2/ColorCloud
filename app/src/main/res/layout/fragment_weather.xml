@@ -86,6 +86,8 @@
                 android:fontFamily="@font/gotham_medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="90sp"
+                android:fontFamily="@font/gotham_medium"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:text="Clear Sky"
