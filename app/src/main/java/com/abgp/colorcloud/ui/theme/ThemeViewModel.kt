@@ -1,13 +1,13 @@
-package com.abgp.colorcloud.ui.gallery
+package com.abgp.colorcloud.ui.theme
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class ThemeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "Theme Fragment"
     }
     val text: LiveData<String> = _text
 }

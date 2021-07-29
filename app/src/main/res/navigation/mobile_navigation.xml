@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.abgp.colorcloud.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.abgp.colorcloud.ui.weather.WeatherFragment"
+        android:label="@string/menu_weather"
+        tools:layout="@layout/fragment_weather" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.abgp.colorcloud.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.abgp.colorcloud.ui.theme.ThemeFragment"
+        android:label="@string/menu_change_theme"
+        tools:layout="@layout/fragment_theme" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.abgp.colorcloud.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.abgp.colorcloud.ui.password.PasswordFragment"
+        android:label="@string/menu_change_password"
+        tools:layout="@layout/fragment_password" />
 </navigation>

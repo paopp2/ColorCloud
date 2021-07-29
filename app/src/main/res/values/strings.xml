@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_logout">Log out</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_weather">Weather</string>
+    <string name="menu_change_theme">Theme</string>
+    <string name="menu_change_password">Password</string>
 </resources>

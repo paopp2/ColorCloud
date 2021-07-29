@@ -1,13 +1,13 @@
-package com.abgp.colorcloud.ui.home
+package com.abgp.colorcloud.ui.weather
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class WeatherViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Weather Fragment"
     }
     val text: LiveData<String> = _text
 }
