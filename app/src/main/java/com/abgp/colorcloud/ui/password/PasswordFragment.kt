@@ -30,10 +30,7 @@ class PasswordFragment : Fragment() {
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
         val root: View = bnd.root
 
-        val textView: TextView = bnd.textSlideshow
-        passwordViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        passwordViewModel.text.observe(viewLifecycleOwner, Observer {})
         return root
     }
 
