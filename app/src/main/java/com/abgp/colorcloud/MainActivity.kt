@@ -16,22 +16,22 @@ import com.abgp.colorcloud.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var bnd: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        bnd = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bnd.root)
 
-        setSupportActionBar(binding.appBarMain.toolbar)
+        setSupportActionBar(bnd.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
+        bnd.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
+        val drawerLayout: DrawerLayout = bnd.drawerLayout
+        val navView: NavigationView = bnd.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

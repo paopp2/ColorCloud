@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.abgp.colorcloud.R
 import com.abgp.colorcloud.databinding.FragmentGalleryBinding
 
 class GalleryFragment : Fragment() {
@@ -18,7 +17,7 @@ class GalleryFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    private val bnd get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,9 +28,9 @@ class GalleryFragment : Fragment() {
             ViewModelProvider(this).get(GalleryViewModel::class.java)
 
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root: View = bnd.root
 
-        val textView: TextView = binding.textGallery
+        val textView: TextView = bnd.textGallery
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

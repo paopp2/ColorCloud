@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.abgp.colorcloud.R
 import com.abgp.colorcloud.databinding.FragmentSlideshowBinding
 
 class SlideshowFragment : Fragment() {
@@ -18,7 +17,7 @@ class SlideshowFragment : Fragment() {
 
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding!!
+    private val bnd get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,9 +28,9 @@ class SlideshowFragment : Fragment() {
             ViewModelProvider(this).get(SlideshowViewModel::class.java)
 
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root: View = bnd.root
 
-        val textView: TextView = binding.textSlideshow
+        val textView: TextView = bnd.textSlideshow
         slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
