@@ -1,5 +1,8 @@
 package com.abgp.colorcloud.ui.theme
 
+import android.graphics.Color
+import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +26,17 @@ class ThemeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        bnd.rgThemes.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+
+                rbRoseanna -> changeTheme("#ffafbd", "#ffc3a0")
+                rbPurpleLove -> changeTheme("#cc2b5e", "#753a88")
+                R.id.rbMauve -> changeTheme("#42275a", "#734b6d")
+                bnd.rbSexyBlue -> changeTheme("#2193b0", "#6dd5ed")
+                bnd.rbFrost -> changeTheme("#000428", "#004e92")
+            }
+        }
+
         themeViewModel =
             ViewModelProvider(this).get(ThemeViewModel::class.java)
 
@@ -40,4 +54,43 @@ class ThemeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun changeTheme(firstColor: String, secondColor: String){
+        val gradient1Drawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(
+                Color.parseColor(firstColor),
+                Color.parseColor(secondColor),
+                Color.parseColor(firstColor))
+        )
+        val gradient2Drawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(
+                Color.parseColor(secondColor),
+                Color.parseColor(firstColor),
+                Color.parseColor(firstColor))
+        )
+        val gradient3Drawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(
+                Color.parseColor(firstColor),
+                Color.parseColor(firstColor),
+                Color.parseColor(secondColor))
+        )
+
+        // mora ni syag maghimo kag gradient animation nga drawable. pero programmatically.
+        val animaDrawable = AnimationDrawable()
+        animaDrawable.addFrame(gradient1Drawable, 3000)
+        animaDrawable.addFrame(gradient2Drawable, 3000)
+        animaDrawable.addFrame(gradient3Drawable, 3000)
+
+
+        // diri dapit iya iset ang animation as background
+        bnd.clLayout.background = animaDrawable              // set background sa root_layout
+        animaDrawable.setEnterFadeDuration(10)
+        animaDrawable.setExitFadeDuration(3000)
+        animaDrawable.start()
+    }
+
+
 }
