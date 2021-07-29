@@ -1,4 +1,4 @@
-package com.abgp.colorcloud.ui.register
+package com.abgp.colorcloud.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

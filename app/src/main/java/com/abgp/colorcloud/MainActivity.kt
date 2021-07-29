@@ -14,7 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.abgp.colorcloud.databinding.ActivityMainBinding
-import com.abgp.colorcloud.ui.register.RegisterActivity
+import com.abgp.colorcloud.ui.auth.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
 
