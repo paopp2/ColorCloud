@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.abgp.colorcloud.R
 import com.abgp.colorcloud.databinding.FragmentThemeBinding
 
 class ThemeFragment : Fragment() {
@@ -26,17 +27,6 @@ class ThemeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bnd.rgThemes.setOnCheckedChangeListener { group, checkedId ->
-            when(checkedId){
-
-                rbRoseanna -> changeTheme("#ffafbd", "#ffc3a0")
-                rbPurpleLove -> changeTheme("#cc2b5e", "#753a88")
-                R.id.rbMauve -> changeTheme("#42275a", "#734b6d")
-                bnd.rbSexyBlue -> changeTheme("#2193b0", "#6dd5ed")
-                bnd.rbFrost -> changeTheme("#000428", "#004e92")
-            }
-        }
-
         themeViewModel =
             ViewModelProvider(this).get(ThemeViewModel::class.java)
 
@@ -47,6 +37,15 @@ class ThemeFragment : Fragment() {
         themeViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
+        bnd.rgThemes.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                R.id.rbRoseanna -> changeTheme("#ffafbd", "#ffc3a0")
+                R.id.rbPurpleLove -> changeTheme("#cc2b5e", "#753a88")
+                R.id.rbMauve -> changeTheme("#42275a", "#734b6d")
+                R.id.rbSexyBlue -> changeTheme("#2193b0", "#6dd5ed")
+                R.id.rbFrost -> changeTheme("#000428", "#004e92")
+            }
+        }
         return root
     }
 
