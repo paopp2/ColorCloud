@@ -71,6 +71,7 @@
                 android:fontFamily="@font/gotham_medium"
                 android:text="31°c"
                 android:textSize="90sp" />
+<<<<<<< HEAD
 
 
             <TextView
@@ -85,9 +86,22 @@
                 android:id="@+id/tvStatus"
                 android:fontFamily="@font/gotham_medium"
                 android:layout_width="wrap_content"
+=======
+
+            <TextView
+                android:layout_width="match_parent"
+>>>>>>> 14f77e1 (WIP: Upgraded weather fragment UI)
                 android:layout_height="wrap_content"
-                android:textSize="90sp"
+                android:fontFamily="@font/proxima_nova_soft"
+                android:textSize="30sp"
+                android:text="---------------------"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
                 android:fontFamily="@font/gotham_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:text="Clear Sky"
