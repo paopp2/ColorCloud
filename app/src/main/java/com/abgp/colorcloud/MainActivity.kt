@@ -3,7 +3,6 @@ package com.abgp.colorcloud
 import android.content.Intent
 import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
@@ -90,20 +89,4 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-    private fun setWeatherData() {
-        // Fetching data from API
-        GlobalScope.launch(Dispatchers.IO) {
-            var resWeatherData: WeatherData = WeatherService.getWeatherData()
-            Log.d("ResMain: ",resWeatherData.toString())
-
-            // you can set weather Data here for the UI
-            withContext(Dispatchers.Main){
-                // Progress bar will be GONE will data is completely fetched
-                pbMain.visibility = View.GONE
-            }
-        }
-
-    }
-
 }
