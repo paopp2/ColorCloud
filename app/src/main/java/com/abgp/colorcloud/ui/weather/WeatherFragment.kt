@@ -15,6 +15,7 @@ import com.abgp.colorcloud.models.WeatherData
 import com.abgp.colorcloud.ui.theme.ThemeSetter
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.round
 
 class WeatherFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
@@ -81,7 +82,7 @@ class WeatherFragment : Fragment() {
                 tvTimeSunset.text = sfSun.format(Date(sunset*1000))
                 tvWind.text = wind.speed.toString() + " km/h"
                 tvAddress.text = name + ", " + sys.country
-                tvTemperature.text = String.format("%.1f", main.temp).toString() + "°c"
+                tvTemperature.text = round(main.temp).toInt().toString() + "°c"
                 tvMinTemp.text = "Min Temp: " + String.format("%.1f", main.temp_min).toString() + "°c"
                 tvMaxTemp.text = "Max Temp: " + String.format("%.1f", main.temp_max).toString() + "°c"
             }
