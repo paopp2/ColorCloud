@@ -39,8 +39,8 @@ class LoginActivity : AppCompatActivity() {
 
         val alertDialog = builder.show()
         alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        bnd.btEnter.setOnClickListener {
-            val enteredPass = bnd.etPassword.text.toString()
+        bnd.btLoginEnter.setOnClickListener {
+            val enteredPass = bnd.etLoginPassword.text.toString()
             if(enteredPass == user.password) {
                 Toast.makeText(this, "Welcome ${user.name}", Toast.LENGTH_SHORT).show()
                 sharedPrefServices.setCurrentUser(user.name)
