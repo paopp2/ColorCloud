@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -5,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/clLayout"
+    android:background="@drawable/roseanna"
     tools:context=".ui.theme.ThemeFragment">
 
     <LinearLayout
@@ -25,6 +27,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Choose Theme"
+            android:textColor="@color/white"
             android:fontFamily="@font/gotham_medium"
             android:layout_marginBottom="30dp"
             android:layout_gravity="center"
@@ -44,6 +47,9 @@
 
                 <RadioButton
                     android:id="@+id/rbRoseanna"
+                    android:checked="true"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
                     android:fontFamily="@font/proxima_nova_soft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,6 +60,8 @@
 
                 <RadioButton
                     android:id="@+id/rbGlacier"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
                     android:fontFamily="@font/proxima_nova_soft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -63,17 +71,21 @@
                     android:textSize="21sp" />
 
                 <RadioButton
-                    android:id="@+id/rbMauve"
+                    android:id="@+id/rbDusk"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
                     android:fontFamily="@font/proxima_nova_soft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="30dp"
                     android:paddingLeft="12dp"
-                    android:text="Mauve"
+                    android:text="Dusk"
                     android:textSize="21sp" />
 
                 <RadioButton
                     android:id="@+id/rbVoid"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
                     android:fontFamily="@font/proxima_nova_soft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,6 +96,8 @@
 
                 <RadioButton
                     android:id="@+id/rbBorealis"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/white"
                     android:fontFamily="@font/proxima_nova_soft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -111,27 +125,27 @@
                     android:layout_width="120dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/sexy_blue" />
+                    android:src="@drawable/glacier" />
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="120dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/mauve" />
+                    android:src="@drawable/dusk" />
 
                 <ImageView
                     android:id="@+id/imageView6"
                     android:layout_width="120dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/purple_love" />
+                    android:src="@drawable/col_void" />
 
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/frost" />
+                    android:src="@drawable/borealis" />
 
 
             </LinearLayout>

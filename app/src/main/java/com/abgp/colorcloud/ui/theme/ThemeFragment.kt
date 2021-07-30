@@ -42,7 +42,7 @@ class ThemeFragment : Fragment() {
             when(checkedId){
                 R.id.rbRoseanna -> changeTheme("#F17B41", "#E05BA2", "#CD4BC9")
                 R.id.rbVoid -> changeTheme("#274B74", "#8233C5", "#E963FD")
-                R.id.rbMauve -> changeTheme("#C3ADC3", "#BD959F", "#EEB5B5")
+                R.id.rbDusk -> changeTheme("#74276C", "#C53364", "#FD8263")
                 R.id.rbGlacier -> changeTheme("#8929AD", "#436AAC", "#43B7B8")
                 R.id.rbBorealis -> changeTheme("#276174", "#33C58E", "#63FD88")
             }
