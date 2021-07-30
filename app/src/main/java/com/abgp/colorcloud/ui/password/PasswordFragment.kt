@@ -8,12 +8,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.abgp.colorcloud.MainViewModel
 import com.abgp.colorcloud.databinding.FragmentPasswordBinding
 import com.abgp.colorcloud.services.SharedPrefServices
+import com.abgp.colorcloud.ui.theme.ThemeSetter
 
 class PasswordFragment : Fragment() {
 
-    private lateinit var passwordViewModel: PasswordViewModel
+    private lateinit var mainViewModel: MainViewModel
     private var _binding: FragmentPasswordBinding? = null
 
     // This property is only valid between onCreateView and
@@ -27,13 +29,15 @@ class PasswordFragment : Fragment() {
     ): View? {
         val sharedPrefServices = SharedPrefServices(requireActivity())
         val currentUser = sharedPrefServices.getCurrentUser()
-        passwordViewModel =
-            ViewModelProvider(this).get(PasswordViewModel::class.java)
+        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
         val root: View = bnd.root
 
-        passwordViewModel.text.observe(viewLifecycleOwner, Observer {})
+        mainViewModel.theme.observe(viewLifecycleOwner, {
+            val themeSetter = ThemeSetter(bnd.root)
+            themeSetter.setTheme(it)
+        })
 
         bnd.btnChangePassword.setOnClickListener {
             val currentPass = bnd.etCurrentPassword.text.toString()
@@ -56,7 +60,6 @@ class PasswordFragment : Fragment() {
                 }
             }
         }
-
         return root
     }
 

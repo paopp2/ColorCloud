@@ -46,7 +46,6 @@
 
                 <RadioButton
                     android:id="@+id/rbRoseanna"
-                    android:checked="true"
                     android:textColor="@color/white"
                     android:buttonTint="@color/white"
                     android:fontFamily="@font/proxima_nova_soft"

@@ -6,11 +6,13 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.abgp.colorcloud.MainViewModel
 import com.abgp.colorcloud.databinding.FragmentWeatherBinding
 import com.abgp.colorcloud.models.WeatherData
+import com.abgp.colorcloud.ui.theme.ThemeSetter
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -27,16 +29,22 @@ class WeatherFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         _binding = FragmentWeatherBinding.inflate(inflater, container, false)
         val root: View = bnd.root
 
-        mainViewModel.weatherData.observe(viewLifecycleOwner, { it ->
-            it?.apply {
-                setWeatherDataUI(bnd, it)
-            }
-        })
+        with(mainViewModel) {
+            weatherData.observe(viewLifecycleOwner, { it ->
+                it?.apply {
+                    setWeatherDataUI(bnd, it)
+                }
+            })
+            theme.observe(viewLifecycleOwner, {
+                val themeSetter = ThemeSetter(bnd.root)
+                themeSetter.setTheme(it)
+            })
+        }
         return root
     }
 
