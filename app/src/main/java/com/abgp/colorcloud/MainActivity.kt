@@ -4,33 +4,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
-import android.view.View.GONE
-import android.widget.ProgressBar
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
 import com.abgp.colorcloud.databinding.ActivityMainBinding
 import com.abgp.colorcloud.services.SharedPrefServices
-import com.abgp.colorcloud.services.WeatherServices
 import com.abgp.colorcloud.ui.auth.LoginActivity
-import kotlinx.coroutines.*
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var bnd: ActivityMainBinding
 
-    @DelicateCoroutinesApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val sharedPrefServices = SharedPrefServices(this)
-        val weatherServices = WeatherServices()
 
         if(sharedPrefServices.getCurrentUser() == null) {
             finish()
@@ -54,18 +47,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        weatherServices.setWeatherData {
-            val pbMain = findViewById<ProgressBar>(R.id.pbMain)
-            val tvTemperature = findViewById<TextView>(R.id.tvTemperature)
-            val tvMinTemp = findViewById<TextView>(R.id.tvMinTemp)
-            val tvMaxTemp = findViewById<TextView>(R.id.tvMaxTemp)
-            pbMain.visibility = GONE
-
-            tvTemperature.text = it.main.temp.toString()
-            tvMinTemp.text = it.main.temp_min.toString()
-            tvMaxTemp.text = it.main.temp_max.toString()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

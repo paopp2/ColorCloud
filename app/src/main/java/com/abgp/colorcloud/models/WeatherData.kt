@@ -1,5 +1,7 @@
 package com.abgp.colorcloud.models
 
+import java.io.Serializable
+
 data class Coord(val lat: Double, val lon: Double)
 data class Main(val feels_like: Double, val humidity: Int, val pressure: Int, val temp: Double , val temp_max: Double, val temp_min: Double)
 data class Sys(val country: String, val sunrise: Int, val sunset: Int, val type: Int)
@@ -18,4 +20,3 @@ data class WeatherData(
     val weather: List<Weather> = emptyList(),
     val wind: Wind = Wind(0.00)
 )
-

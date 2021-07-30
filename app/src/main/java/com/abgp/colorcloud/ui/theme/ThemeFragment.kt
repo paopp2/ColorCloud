@@ -37,7 +37,7 @@ class ThemeFragment : Fragment() {
         themeViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
-        bnd.rgThemes.setOnCheckedChangeListener { group, checkedId ->
+        bnd.rgThemes.setOnCheckedChangeListener { _, checkedId ->
             when(checkedId){
                 R.id.rbRoseanna -> changeTheme("#ffafbd", "#ffc3a0")
                 R.id.rbPurpleLove -> changeTheme("#cc2b5e", "#753a88")
