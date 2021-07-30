@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/frost"
+    android:background="@drawable/glacier"
     tools:context=".ui.weather.WeatherFragment">
 
     <ProgressBar
@@ -76,25 +76,14 @@
                 android:textColor="@color/white"
                 android:textSize="90sp" />
 
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/proxima_nova_soft"
-                android:textSize="30sp"
-                android:text="---------------------"
-                android:gravity="center"/>
-
-            <TextView
-                android:id="@+id/tvStatus"
-                android:fontFamily="@font/gotham_medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/proxima_nova_soft"
-                android:textSize="30sp"
                 android:text="---------------------"
                 android:textColor="@color/white"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/tvStatus"
