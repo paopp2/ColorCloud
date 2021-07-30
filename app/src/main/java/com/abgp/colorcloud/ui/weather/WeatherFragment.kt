@@ -81,9 +81,9 @@ class WeatherFragment : Fragment() {
                 tvTimeSunset.text = sfSun.format(Date(sunset*1000))
                 tvWind.text = wind.speed.toString() + " km/h"
                 tvAddress.text = name + ", " + sys.country
-                tvTemperature.text = main.temp.toString() + " °C"
-                tvMinTemp.text = "Min Temp: " + main.temp_min.toString() + " °C"
-                tvMaxTemp.text = "Max Temp: " + main.temp_max.toString() + " °C"
+                tvTemperature.text = String.format("%.1f", main.temp).toString() + "°c"
+                tvMinTemp.text = "Min Temp: " + String.format("%.1f", main.temp_min).toString() + "°c"
+                tvMaxTemp.text = "Max Temp: " + String.format("%.1f", main.temp_max).toString() + "°c"
             }
         }
     }
