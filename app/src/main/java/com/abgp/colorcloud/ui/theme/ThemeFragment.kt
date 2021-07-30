@@ -56,27 +56,9 @@ class ThemeFragment : Fragment() {
     }
 
     private fun changeTheme(firstColor: String, secondColor: String, thirdColor: String){
-        val gradient1Drawable = GradientDrawable(
-            GradientDrawable.Orientation.TR_BL,
-            intArrayOf(
-                Color.parseColor(firstColor),
-                Color.parseColor(secondColor),
-                Color.parseColor(thirdColor))
-        )
-        val gradient2Drawable = GradientDrawable(
-            GradientDrawable.Orientation.TOP_BOTTOM,
-            intArrayOf(
-                Color.parseColor(secondColor),
-                Color.parseColor(thirdColor),
-                Color.parseColor(firstColor))
-        )
-        val gradient3Drawable = GradientDrawable(
-            GradientDrawable.Orientation.TOP_BOTTOM,
-            intArrayOf(
-                Color.parseColor(thirdColor),
-                Color.parseColor(firstColor),
-                Color.parseColor(secondColor))
-        )
+        val gradient1Drawable = setDrawable(1, firstColor, secondColor, thirdColor)
+        val gradient2Drawable = setDrawable(2, firstColor, secondColor, thirdColor)
+        val gradient3Drawable = setDrawable(3, firstColor, secondColor, thirdColor)
 
         val animaDrawable = AnimationDrawable()
         animaDrawable.addFrame(gradient1Drawable, 2000)
@@ -90,5 +72,24 @@ class ThemeFragment : Fragment() {
         animaDrawable.start()
     }
 
-
+    private fun setDrawable(order: Int, firstColor: String, secondColor: String, thirdColor: String): GradientDrawable{
+        return GradientDrawable(
+            GradientDrawable.Orientation.TR_BL,
+            when(order){
+                1 -> intArrayOf(
+                    Color.parseColor(firstColor),
+                    Color.parseColor(secondColor),
+                    Color.parseColor(thirdColor))
+                2 -> intArrayOf(
+                    Color.parseColor(secondColor),
+                    Color.parseColor(thirdColor),
+                    Color.parseColor(firstColor))
+                3 -> intArrayOf(
+                    Color.parseColor(thirdColor),
+                    Color.parseColor(firstColor),
+                    Color.parseColor(secondColor))
+                else -> null
+            }
+        )
+    }
 }
