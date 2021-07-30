@@ -1,16 +1,12 @@
 package com.abgp.colorcloud.ui.auth
 
 import android.content.Intent
-import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.abgp.colorcloud.MainActivity
-import com.abgp.colorcloud.R
 import com.abgp.colorcloud.databinding.ActivityLoginBinding
-import com.abgp.colorcloud.databinding.ActivityMainBinding
 import com.abgp.colorcloud.databinding.AlertDialogCustomBinding
 import com.abgp.colorcloud.models.User
 import com.abgp.colorcloud.services.SharedPrefServices

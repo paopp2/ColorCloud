@@ -3,6 +3,7 @@ package com.abgp.colorcloud.services
 import android.content.Context
 import android.util.Log
 import com.abgp.colorcloud.models.User
+import com.abgp.colorcloud.ui.password.PasswordFragment
 import com.google.gson.Gson
 
 class SharedPrefServices(context: Context) {
@@ -50,8 +51,8 @@ class SharedPrefServices(context: Context) {
     }
 
     // Updates an existing user
-    fun updateUser(name: String) {
-        val user = getUser(name) ?: throw Exception("User doesn't exist")
+    fun updateUser(user: User) {
+        getUser(user.name) ?: throw Exception("User doesn't exist")
         val json = gson.toJson(user)
         with(allUsersSharedPref.edit()) {
             putString(user.name, json)

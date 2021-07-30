@@ -3,10 +3,8 @@ package com.abgp.colorcloud.ui.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.abgp.colorcloud.MainActivity
-import com.abgp.colorcloud.R
 import com.abgp.colorcloud.databinding.ActivityRegisterBinding
 import com.abgp.colorcloud.models.User
 import com.abgp.colorcloud.services.SharedPrefServices
