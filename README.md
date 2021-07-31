@@ -1,5 +1,5 @@
 
-# <img src="screenshots/logo.png" height="20"/> ColorCloud 
+# <img src="screenshots/logo.png" height="30"/> ColorCloud 
 
 <p align="middle">
   <img src="screenshots/roseanna.gif" width="200" />
