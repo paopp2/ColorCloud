@@ -1,5 +1,6 @@
 package com.abgp.colorcloud.ui.password
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +19,6 @@ class PasswordFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
     private var _binding: FragmentPasswordBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val bnd get() = _binding!!
 
     override fun onCreateView(
@@ -35,7 +34,7 @@ class PasswordFragment : Fragment() {
         val root: View = bnd.root
 
         mainViewModel.theme.observe(viewLifecycleOwner, {
-            val themeSetter = ThemeSetter(bnd.root)
+            val themeSetter = ThemeSetter(root)
             themeSetter.setTheme(it)
         })
 
@@ -51,12 +50,12 @@ class PasswordFragment : Fragment() {
                         bnd.etConfNewPassword.text?.clear()
                         bnd.etNewPassword.text?.clear()
                         bnd.etCurrentPassword.text?.clear()
-                        Toast.makeText(requireActivity(), "Password updated", Toast.LENGTH_SHORT).show()
+                        toastMessage("Password updated")
                     } else {
-                        Toast.makeText(requireActivity(), "Entered passwords do not match", Toast.LENGTH_SHORT).show()
+                        toastMessage("Entered passwords do not match")
                     }
                 } else {
-                    Toast.makeText(requireActivity(), "Wrong password", Toast.LENGTH_SHORT).show()
+                    toastMessage("Wrong password")
                 }
             }
         }
@@ -66,5 +65,9 @@ class PasswordFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun toastMessage(msg: String) {
+        Toast.makeText(requireActivity(), msg, Toast.LENGTH_SHORT).show()
     }
 }

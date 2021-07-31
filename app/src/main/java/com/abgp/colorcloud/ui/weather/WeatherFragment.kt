@@ -21,28 +21,21 @@ class WeatherFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
     private var _binding: FragmentWeatherBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val bnd get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-
+        savedInstanceState: Bundle? ): View? { mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         _binding = FragmentWeatherBinding.inflate(inflater, container, false)
         val root: View = bnd.root
 
         with(mainViewModel) {
-            weatherData.observe(viewLifecycleOwner, { it ->
-                it?.apply {
-                    setWeatherDataUI(bnd, it)
-                }
+            weatherData.observe(viewLifecycleOwner, {
+                it?.apply {setWeatherDataUI(bnd, it)}
             })
             theme.observe(viewLifecycleOwner, {
-                val themeSetter = ThemeSetter(bnd.root)
+                val themeSetter = ThemeSetter(root)
                 themeSetter.setTheme(it)
             })
         }
