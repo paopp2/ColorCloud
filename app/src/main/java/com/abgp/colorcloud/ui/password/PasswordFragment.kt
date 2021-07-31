@@ -1,13 +1,11 @@
 package com.abgp.colorcloud.ui.password
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.abgp.colorcloud.MainViewModel
 import com.abgp.colorcloud.databinding.FragmentPasswordBinding
@@ -50,12 +48,12 @@ class PasswordFragment : Fragment() {
                         bnd.etConfNewPassword.text?.clear()
                         bnd.etNewPassword.text?.clear()
                         bnd.etCurrentPassword.text?.clear()
-                        toastMessage("Password updated")
+                        toast("Password updated")
                     } else {
-                        toastMessage("Entered passwords do not match")
+                        toast("Entered passwords do not match")
                     }
                 } else {
-                    toastMessage("Wrong password")
+                    toast("Wrong password")
                 }
             }
         }
@@ -67,7 +65,7 @@ class PasswordFragment : Fragment() {
         _binding = null
     }
 
-    private fun toastMessage(msg: String) {
+    private fun toast(msg: String) {
         Toast.makeText(requireActivity(), msg, Toast.LENGTH_SHORT).show()
     }
 }

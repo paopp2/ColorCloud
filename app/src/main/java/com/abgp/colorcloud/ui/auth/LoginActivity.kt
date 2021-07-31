@@ -42,14 +42,18 @@ class LoginActivity : AppCompatActivity() {
         bnd.btLoginEnter.setOnClickListener {
             val enteredPass = bnd.etLoginPassword.text.toString()
             if(enteredPass == user.password) {
-                Toast.makeText(this, "Welcome ${user.name}", Toast.LENGTH_SHORT).show()
+                toast("Welcome ${user.name}")
                 sharedPrefServices.setCurrentUser(user.name)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Access Denied", Toast.LENGTH_SHORT).show()
+                toast("Access Denied")
             }
             alertDialog.dismiss()
         }
+    }
+
+    private fun toast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }

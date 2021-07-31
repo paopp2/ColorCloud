@@ -8,6 +8,7 @@ import com.abgp.colorcloud.MainActivity
 import com.abgp.colorcloud.databinding.ActivityRegisterBinding
 import com.abgp.colorcloud.models.User
 import com.abgp.colorcloud.services.SharedPrefServices
+import com.abgp.colorcloud.ui.theme.ColorTheme
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var bnd : ActivityRegisterBinding
@@ -22,17 +23,21 @@ class RegisterActivity : AppCompatActivity() {
             val confPass = bnd.etConfPassword.text.toString()
             if(pass == confPass) {
                 val sharedPrefServices = SharedPrefServices(this)
-                val newUser = User(username, pass, "Blue")
+                val newUser = User(username, pass, ColorTheme.ROSEANNA)
                 with(sharedPrefServices) {
                     addUser(newUser)
                     setCurrentUser(newUser.name)
                 }
-                Toast.makeText(this, "Welcome ${newUser.name}", Toast.LENGTH_SHORT).show()
+                toast("Welcome ${newUser.name}")
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+                toast("Passwords do not match")
             }
         }
+    }
+
+    private fun toast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }
