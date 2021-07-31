@@ -1,24 +1,26 @@
 
 # <img src="screenshots/logo.png" height="20"/> ColorCloud 
 
-Roseanna |  Glacier | Borealis
-:-------------------------:|:-------------------------:|:-------------------------:|
-![alt text](screenshots/roseanna.gif)  |  ![alt text](screenshots/glacier.gif) | ![alt text](screenshots/borealis.gif)
+<p align="middle">
+  <img src="screenshots/roseanna.gif" width="200" />
+  <img src="screenshots/glacier.gif" width="200" /> 
+  <img src="screenshots/borealis.gif" width="200" />
+</p>
  
 
 ColorCloud is a beautiful and simple Android Weather application utlizing the [OpenWeather](https://openweathermap.org/) API to provide users with relevant weather data.
 
 ## TODO
-- [o] UI
+- [ ] UI
     - [X] WeatherFragment
     - [X] PasswordFragment
     - [X] ThemeFragment
     - [ ] Navigation Drawer
     - [ ] Login Activity (Color)
     - [ ] Login Password AlertDialog (Color)
-- [.] Services
+- [ ] Services
     - [ ] OpenWeather API call
-    - [o] User data persistence
+    - [ ] User data persistence
         - [X] Username
         - [X] Password
         - [ ] Color
