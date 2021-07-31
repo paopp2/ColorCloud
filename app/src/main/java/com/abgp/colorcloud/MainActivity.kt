@@ -48,6 +48,17 @@ class MainActivity : AppCompatActivity() {
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         
+        Log.d("Debug:",checkLocPermission().toString())
+        Log.d("Debug:",isLocEnabled().toString())
+        requestLocPermission()
+        fusedLocationProviderClient.lastLocation.addOnSuccessListener{location: Location? ->
+            // return or set the latitufe or long here
+            //location?.latitude
+            //location?.longitude
+            Log.d("Latitude: ",location?.latitude.toString())
+            Log.d("Longitude: ",location?.longitude.toString())
+        }
+        getLastLoc()
         /* EXAMPLE
         testbutton.setOnClickListener {
             Log.d("Debug:",checkLocPermission().toString())
