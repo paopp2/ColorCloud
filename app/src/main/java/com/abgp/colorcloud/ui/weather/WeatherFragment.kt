@@ -6,7 +6,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.abgp.colorcloud.MainViewModel
@@ -26,7 +25,9 @@ class WeatherFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle? ): View? { mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        savedInstanceState: Bundle?
+    ): View {
+        mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         _binding = FragmentWeatherBinding.inflate(inflater, container, false)
         val root: View = bnd.root
 

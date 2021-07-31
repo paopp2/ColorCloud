@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -24,8 +25,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val sharedPrefServices = SharedPrefServices(this)
+        val mainViewModel : MainViewModel by viewModels()
 
-        if(sharedPrefServices.getCurrentUser() == null) {
+        val currentUser = sharedPrefServices.getCurrentUser()
+        if(currentUser == null) {
             finish()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -38,8 +41,6 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = bnd.drawerLayout
         val navView: NavigationView = bnd.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
@@ -47,10 +48,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        mainViewModel.theme.value = currentUser?.colorTheme
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }

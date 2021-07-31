@@ -23,7 +23,7 @@ class PasswordFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val sharedPrefServices = SharedPrefServices(requireActivity())
         val currentUser = sharedPrefServices.getCurrentUser()
         mainViewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)

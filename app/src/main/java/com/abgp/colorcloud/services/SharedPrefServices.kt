@@ -58,6 +58,7 @@ class SharedPrefServices(context: Context) {
             putString(user.name, json)
             apply()
         }
+        setCurrentUser(user.name)
     }
 
     // Returns a list of all stored Users
