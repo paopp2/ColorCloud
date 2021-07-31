@@ -1,14 +1,26 @@
-# ColorCloud
 
-## The Team
+# <img src="screenshots/logo.png" height="20"/> ColorCloud 
 
-    - Ausejo, Charles Jr.
-    - Belarmino, Cessna
-    - Gonzales, Christian Benedict
-    - Pepito, Nicolas Paolo
+Roseanna |  Glacier | Borealis
+:-------------------------:|:-------------------------:|:-------------------------:|
+![alt text](screenshots/roseanna.gif)  |  ![alt text](screenshots/glacier.gif) | ![alt text](screenshots/borealis.gif)
+ 
 
-**TODO**:
-- [ ] API and services (Charles)
-- [ ] Documentation (Cessna)
-- [ ] UI and Layout (Christian)
-- [ ] Data persistence (Paolo)
+ColorCloud is a beautiful and simple Android Weather application utlizing the [OpenWeather](https://openweathermap.org/) API to provide users with relevant weather data.
+
+## TODO
+- [o] UI
+    - [X] WeatherFragment
+    - [X] PasswordFragment
+    - [X] ThemeFragment
+    - [ ] Navigation Drawer
+    - [ ] Login Activity (Color)
+    - [ ] Login Password AlertDialog (Color)
+- [.] Services
+    - [ ] OpenWeather API call
+    - [o] User data persistence
+        - [X] Username
+        - [X] Password
+        - [ ] Color
+- [ ] Documentation
+- [ ] Refactoring and code cleaning
