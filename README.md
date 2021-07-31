@@ -19,7 +19,8 @@ ColorCloud is a beautiful and simple Android Weather application utlizing the [O
     - [ ] Login Activity (Color)
     - [ ] Login Password AlertDialog (Color)
 - [ ] Services
-    - [ ] OpenWeather API call
+    - [X] OpenWeather API call
+    - [ ] Geolocation service
     - [ ] User data persistence
         - [X] Username
         - [X] Password
