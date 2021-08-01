@@ -28,6 +28,7 @@ import com.google.android.gms.location.*
 import com.google.android.material.navigation.NavigationView
 
 private const val TAG = "MainActivity"
+private const val REQUEST_CODE = 1421
 
 class MainActivity : AppCompatActivity() {
 
@@ -61,19 +62,14 @@ class MainActivity : AppCompatActivity() {
             finish()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-        }
+        } else {
+            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        
-        Log.d(TAG,"CheckLocPermission: ${checkLocPermission()}")
-        Log.d(TAG,"IsLocEnabled: ${isLocEnabled()}")
-        requestLocPermission()
-//        fusedLocationProviderClient.lastLocation.addOnSuccessListener{location: Location? ->
-//            Log.d(TAG,location?.latitude.toString())
-//            Log.d(TAG,location?.longitude.toString())
-//            mainViewModel.geoData.value = location
-//        }
-        getLastLoc()
+            Log.d(TAG,"CheckLocPermission: ${checkLocPermission()}")
+            Log.d(TAG,"IsLocEnabled: ${isLocEnabled()}")
+
+            getLastLoc()
+        }
     }
 
     private fun getLastLoc(){
@@ -132,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION,android.Manifest.permission.ACCESS_FINE_LOCATION),
-            1421
+            REQUEST_CODE
         )
     }
 
@@ -148,7 +144,7 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == 1421){
+        if(requestCode == REQUEST_CODE){
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 getLastLoc()
                 Log.d(TAG, "Location Permission Granted")
