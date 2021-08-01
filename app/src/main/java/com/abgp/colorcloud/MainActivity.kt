@@ -64,22 +64,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         } else {
             fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-
-            Log.d(TAG,"CheckLocPermission: ${checkLocPermission()}")
-            Log.d(TAG,"IsLocEnabled: ${isLocEnabled()}")
-
             getLastLoc()
         }
     }
 
-    private fun getLastLoc(){
-        if(checkLocPermission()){
-            if(isLocEnabled()){
-                fusedLocationProviderClient.lastLocation.addOnCompleteListener {task->
+    override fun onResume() {
+        getLastLoc()
+        super.onResume()
+    }
 
+    private fun getLastLoc(){
+        Log.d(TAG,"CheckLocPermission: ${checkLocPermission()}")
+        if(checkLocPermission()){
+            Log.d(TAG,"IsLocEnabled: ${locationEnabled()}")
+            if(locationEnabled()){
+                fusedLocationProviderClient.lastLocation.addOnCompleteListener {task->
                     val location: Location? = task.result
                     if(location == null){
-
                         val locationRequest = LocationRequest.create().apply {
                             interval = 100
                             fastestInterval = 0
@@ -87,24 +88,21 @@ class MainActivity : AppCompatActivity() {
                             maxWaitTime= 100
                             numUpdates = 1
                         }
-
                         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-
                         Looper.myLooper()?.apply {
                             fusedLocationProviderClient.requestLocationUpdates(
-                                locationRequest,locationCallback, this
+                                locationRequest, locationCallback, this
                             )
                         }
-
-                    }else{
-                        Log.d(TAG,"Your Location:"+ location.longitude + " " + location.latitude)
+                    } else {
+                        Log.d(TAG,"Your Location: "+ location.longitude + " " + location.latitude)
                         mainViewModel.geoData.value = location
                     }
                 }
-            }else{
+            } else {
                 Toast.makeText(this,"Please Turn on Your device Location", Toast.LENGTH_SHORT).show()
             }
-        }else{
+        } else {
             requestLocPermission()
         }
     }
@@ -112,7 +110,7 @@ class MainActivity : AppCompatActivity() {
     private val locationCallback = object : LocationCallback(){
         override fun onLocationResult(locationResult: LocationResult) {
             val lastLocation: Location = locationResult.lastLocation
-            Log.d(TAG,"Last last location: "+ lastLocation.longitude.toString() + lastLocation.latitude.toString())
+            Log.d(TAG,"Location callback: "+ lastLocation.longitude.toString() + lastLocation.latitude.toString())
             mainViewModel.geoData.value = lastLocation
         }
     }
@@ -132,7 +130,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun isLocEnabled():Boolean{
+    private fun locationEnabled():Boolean{
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
             LocationManager.NETWORK_PROVIDER)
