@@ -68,11 +68,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        getLastLoc()
-        super.onResume()
-    }
-
     private fun getLastLoc(){
         Log.d(TAG,"CheckLocPermission: ${checkLocPermission()}")
         if(checkLocPermission()){
@@ -100,7 +95,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             } else {
-                Toast.makeText(this,"Please Turn on Your device Location", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Device location turned off, using a preset location", Toast.LENGTH_SHORT).show()
+                usePresetLocation()
             }
         } else {
             requestLocPermission()
@@ -122,10 +118,10 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun requestLocPermission(){
+    private fun requestLocPermission() {
         ActivityCompat.requestPermissions(
             this,
-            arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION,android.Manifest.permission.ACCESS_FINE_LOCATION),
+            arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION),
             REQUEST_CODE
         )
     }
@@ -141,15 +137,17 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if(requestCode == REQUEST_CODE){
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                getLastLoc()
                 Log.d(TAG, "Location Permission Granted")
+                getLastLoc()
             }else{
                 Log.d(TAG, "Location Permission Denied")
+                Toast.makeText(this, "Permission denied, using preset location", Toast.LENGTH_SHORT).show()
+                usePresetLocation()
             }
         }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -173,5 +171,12 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun usePresetLocation() {
+        val presetLocation = Location("dummy_provider")
+        presetLocation.longitude = 123.88557169849281
+        presetLocation.latitude = 10.315413375969552
+        mainViewModel.geoData.value = presetLocation
     }
 }
