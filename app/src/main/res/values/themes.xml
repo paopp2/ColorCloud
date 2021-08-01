@@ -20,4 +20,9 @@
 
     <style name="Theme.ColorCloud.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="NavigationDrawerItems" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/proxima_nova_soft</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>
