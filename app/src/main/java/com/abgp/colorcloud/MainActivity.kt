@@ -11,10 +11,11 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -25,14 +26,13 @@ import com.abgp.colorcloud.services.SharedPrefServices
 import com.abgp.colorcloud.ui.auth.LoginActivity
 import com.google.android.gms.location.*
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.fragment_weather.*
-import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var bnd: ActivityMainBinding
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    private lateinit var mainViewModel : MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,23 +57,9 @@ class MainActivity : AppCompatActivity() {
             //location?.longitude
             Log.d("Latitude: ",location?.latitude.toString())
             Log.d("Longitude: ",location?.longitude.toString())
+            mainViewModel.geoData.value = location
         }
         getLastLoc()
-        /* EXAMPLE
-        testbutton.setOnClickListener {
-            Log.d("Debug:",checkLocPermission().toString())
-            Log.d("Debug:",isLocEnabled().toString())
-            requestLocPermission()
-            fusedLocationProviderClient.lastLocation.addOnSuccessListener{location: Location? ->
-                 // return or set the latitufe or long here
-                //location?.latitude
-                //location?.longitude
-                Log.d("Latitude: ",location?.latitude.toString())
-            Log.d("Longitude: ",location?.longitude.toString())
-             }
-            getLastLoc()
-        }*/
-
 
         bnd = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bnd.root)
@@ -97,10 +83,10 @@ class MainActivity : AppCompatActivity() {
             if(isLocEnabled()){
                 fusedLocationProviderClient.lastLocation.addOnCompleteListener {task->
 
-                    var location: Location? = task.result
+                    val location: Location? = task.result
                     if(location == null){
 
-                        var locationRequest = LocationRequest.create().apply {
+                        val locationRequest = LocationRequest.create().apply {
                             interval = 100
                             fastestInterval = 0
                             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
@@ -110,12 +96,15 @@ class MainActivity : AppCompatActivity() {
 
                         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
-                        fusedLocationProviderClient!!.requestLocationUpdates(
-                            locationRequest,locationCallback, Looper.myLooper()
-                        )
+                        Looper.myLooper()?.apply {
+                            fusedLocationProviderClient.requestLocationUpdates(
+                                locationRequest,locationCallback, this
+                            )
+                        }
 
                     }else{
                         Log.d("Your Current Location:" ,"Your Location:"+ location.longitude + " " + location.latitude)
+                        mainViewModel.geoData.value = location
                     }
                 }
             }else{
@@ -128,8 +117,9 @@ class MainActivity : AppCompatActivity() {
 
     private val locationCallback = object : LocationCallback(){
         override fun onLocationResult(locationResult: LocationResult) {
-            var lastLocation: Location = locationResult.lastLocation
+            val lastLocation: Location = locationResult.lastLocation
             Log.d("Location (Callback):","Last last location: "+ lastLocation.longitude.toString() + lastLocation.latitude.toString())
+            mainViewModel.geoData.value = lastLocation
         }
     }
 
@@ -151,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
     private fun isLocEnabled():Boolean{
-        var locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
             LocationManager.NETWORK_PROVIDER)
     }

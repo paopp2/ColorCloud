@@ -1,5 +1,6 @@
 package com.abgp.colorcloud.services
 
+import android.location.Location
 import com.abgp.colorcloud.ApiInterface
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,5 +14,10 @@ class WeatherServices {
         .build()
         .create(ApiInterface::class.java)
 
-    suspend fun getWeatherData() = rfBuilder.getData()
+    suspend fun getWeatherData(location: Location) = rfBuilder.getData(
+        mapOf(
+            "lat" to "${location.latitude}",
+            "lon" to "${location.longitude}"
+        )
+    )
 }
