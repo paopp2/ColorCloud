@@ -27,6 +27,8 @@ import com.abgp.colorcloud.ui.auth.LoginActivity
 import com.google.android.gms.location.*
 import com.google.android.material.navigation.NavigationView
 
+private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -39,31 +41,8 @@ class MainActivity : AppCompatActivity() {
         val sharedPrefServices = SharedPrefServices(this)
         val mainViewModel : MainViewModel by viewModels()
 
-        val currentUser = sharedPrefServices.getCurrentUser()
-        if(currentUser == null) {
-            finish()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
-
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-        
-        Log.d("Debug:",checkLocPermission().toString())
-        Log.d("Debug:",isLocEnabled().toString())
-        requestLocPermission()
-        fusedLocationProviderClient.lastLocation.addOnSuccessListener{location: Location? ->
-            // return or set the latitufe or long here
-            //location?.latitude
-            //location?.longitude
-            Log.d("Latitude: ",location?.latitude.toString())
-            Log.d("Longitude: ",location?.longitude.toString())
-            mainViewModel.geoData.value = location
-        }
-        getLastLoc()
-
         bnd = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bnd.root)
-        setSupportActionBar(bnd.appBarMain.toolbar)
 
         val drawerLayout: DrawerLayout = bnd.drawerLayout
         val navView: NavigationView = bnd.navView
@@ -73,11 +52,30 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
             ), drawerLayout
         )
+
+        setSupportActionBar(bnd.appBarMain.toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        mainViewModel.theme.value = currentUser?.colorTheme
+        if(sharedPrefServices.getCurrentUser() == null) {
+            finish()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        
+        Log.d(TAG,"CheckLocPermission: ${checkLocPermission()}")
+        Log.d(TAG,"IsLocEnabled: ${isLocEnabled()}")
+        requestLocPermission()
+//        fusedLocationProviderClient.lastLocation.addOnSuccessListener{location: Location? ->
+//            Log.d(TAG,location?.latitude.toString())
+//            Log.d(TAG,location?.longitude.toString())
+//            mainViewModel.geoData.value = location
+//        }
+        getLastLoc()
     }
+
     private fun getLastLoc(){
         if(checkLocPermission()){
             if(isLocEnabled()){
@@ -103,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                         }
 
                     }else{
-                        Log.d("Your Current Location:" ,"Your Location:"+ location.longitude + " " + location.latitude)
+                        Log.d(TAG,"Your Location:"+ location.longitude + " " + location.latitude)
                         mainViewModel.geoData.value = location
                     }
                 }
@@ -118,21 +116,18 @@ class MainActivity : AppCompatActivity() {
     private val locationCallback = object : LocationCallback(){
         override fun onLocationResult(locationResult: LocationResult) {
             val lastLocation: Location = locationResult.lastLocation
-            Log.d("Location (Callback):","Last last location: "+ lastLocation.longitude.toString() + lastLocation.latitude.toString())
+            Log.d(TAG,"Last last location: "+ lastLocation.longitude.toString() + lastLocation.latitude.toString())
             mainViewModel.geoData.value = lastLocation
         }
     }
 
     private fun checkLocPermission(): Boolean {
-        if(
+        return(
             ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
             ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-        ){
-            return true
-        }
-
-        return false
+        )
     }
+
     private fun requestLocPermission(){
         ActivityCompat.requestPermissions(
             this,
@@ -140,6 +135,7 @@ class MainActivity : AppCompatActivity() {
             1421
         )
     }
+
     private fun isLocEnabled():Boolean{
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
@@ -155,12 +151,13 @@ class MainActivity : AppCompatActivity() {
         if(requestCode == 1421){
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 getLastLoc()
-                Log.d("Permission", "You have permission")
+                Log.d(TAG, "Location Permission Granted")
             }else{
-                Log.d("Permission", "Permission Denied")
+                Log.d(TAG, "Location Permission Denied")
             }
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
