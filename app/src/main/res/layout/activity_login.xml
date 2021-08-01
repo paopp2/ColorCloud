@@ -4,19 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/glacier"
+    android:background="@color/white"
     tools:context=".ui.auth.LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/logo_no_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTemporary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="82dp"
-        android:layout_marginBottom="39dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif"
         android:letterSpacing="0.01"
         android:text="Registered User Accounts"
-        android:textColor="#FBFBFB"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rvUsersList"
@@ -26,11 +34,11 @@
 
     <Button
         android:id="@+id/btRegister"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="128dp"
-        android:backgroundTint="#7A188A"
-        android:text="Register"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/custom_reg_button"
+        android:text="Create New Account"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="17sp"
@@ -42,16 +50,15 @@
     <TextView
         android:id="@+id/tvRegisterInfo"
         android:layout_width="match_parent"
-        android:textColor="#FBFBFB"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
         android:gravity="center"
         android:text="Can't recognize any of the accounts listed above? \nRegister to get started."
         android:textSize="13sp"
-        app:layout_constraintTop_toTopOf="@id/rvUsersList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvUsersList" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUsersList"
@@ -62,12 +69,12 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="106dp"
-        android:requiresFadingEdge="horizontal"
         android:alpha="0.7"
-        android:background="@drawable/glacier"
+        android:requiresFadingEdge="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/btRegister"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTemporary" />
 </androidx.constraintlayout.widget.ConstraintLayout>

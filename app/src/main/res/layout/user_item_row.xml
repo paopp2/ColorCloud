@@ -4,8 +4,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 android:orientation="horizontal"
 android:layout_width="match_parent"
-android:layout_height="wrap_content"
-    >
+android:layout_height="wrap_content">
 
 <androidx.cardview.widget.CardView
     app:cardUseCompatPadding="true"
@@ -14,18 +13,17 @@ android:layout_height="wrap_content"
     app:cardElevation="3dp"
     android:layout_width="0dp"
     android:layout_height="65dp"
-   android:backgroundTint="#B6A953">
+    android:backgroundTint="@color/white">
 
     <TextView
         android:id="@+id/tvUsername"
         android:drawableLeft="@drawable/user"
-        android:drawablePadding="-30dp"
-        android:layout_marginLeft="20dp"
+        android:drawablePadding="-40dp"
+        android:paddingLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="User"
-        android:textColor="@color/white" />
+        android:text="User"/>
 </androidx.cardview.widget.CardView>
 </LinearLayout>
 
