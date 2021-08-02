@@ -10,7 +10,6 @@ import android.os.Looper
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.viewModels
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -26,6 +25,7 @@ import com.abgp.colorcloud.services.SharedPrefServices
 import com.abgp.colorcloud.ui.auth.LoginActivity
 import com.google.android.gms.location.*
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 private const val TAG = "MainActivity"
 private const val REQUEST_CODE = 1421
@@ -40,13 +40,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val sharedPrefServices = SharedPrefServices(this)
-        val mainViewModel : MainViewModel by viewModels()
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         bnd = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bnd.root)
 
         val drawerLayout: DrawerLayout = bnd.drawerLayout
         val navView: NavigationView = bnd.navView
+        val headerView = navView.inflateHeaderView(R.layout.nav_header_main)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -58,11 +59,14 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if(sharedPrefServices.getCurrentUser() == null) {
+        val currentUser = sharedPrefServices.getCurrentUser()
+        if(currentUser == null) {
             finish()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         } else {
+            headerView.tvNameNavDrawer.text = currentUser.name
+            mainViewModel.theme.value = currentUser.colorTheme
             fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
             getLastLoc()
         }
