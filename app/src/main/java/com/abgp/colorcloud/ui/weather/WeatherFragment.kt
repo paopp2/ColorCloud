@@ -60,7 +60,7 @@ class WeatherFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if(bnd.pbMain.visibility == VISIBLE) {
             viewLifecycleOwner.lifecycleScope.launch {
-                delay(5000)
+                delay(10000)
                 if(mainViewModel.weatherData.value == null) {
                     toast("Timeout reached, using preset values instead")
                     bnd.pbMain.visibility = GONE
