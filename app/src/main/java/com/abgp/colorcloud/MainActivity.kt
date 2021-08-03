@@ -10,6 +10,8 @@ import android.os.Looper
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View.GONE
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -23,6 +25,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.abgp.colorcloud.databinding.ActivityMainBinding
 import com.abgp.colorcloud.services.SharedPrefServices
 import com.abgp.colorcloud.ui.auth.LoginActivity
+import com.abgp.colorcloud.utils.Utils
 import com.google.android.gms.location.*
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.nav_header_main.view.*
@@ -73,6 +76,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getLastLoc(){
+        if(!Utils.isInternetAvailable(this)) {
+            Toast.makeText(
+                this,
+                "Internet is turned off. Using preset values instead",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
         Log.d(TAG,"CheckLocPermission: ${checkLocPermission()}")
         if(checkLocPermission()){
             Log.d(TAG,"IsLocEnabled: ${locationEnabled()}")

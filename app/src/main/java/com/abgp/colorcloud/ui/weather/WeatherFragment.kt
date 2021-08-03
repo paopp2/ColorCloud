@@ -6,15 +6,23 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.abgp.colorcloud.MainViewModel
 import com.abgp.colorcloud.databinding.FragmentWeatherBinding
 import com.abgp.colorcloud.models.WeatherData
 import com.abgp.colorcloud.ui.theme.ThemeSetter
+import com.abgp.colorcloud.utils.Utils
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.Duration
 import java.util.*
 import kotlin.math.round
+
+private const val TAG = "WeatherFragment"
 
 class WeatherFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
@@ -31,16 +39,35 @@ class WeatherFragment : Fragment() {
         _binding = FragmentWeatherBinding.inflate(inflater, container, false)
         val root: View = bnd.root
 
-        with(mainViewModel) {
-            weatherData.observe(viewLifecycleOwner, {
-                it?.apply {setWeatherDataUI(bnd, it)}
-            })
-            theme.observe(viewLifecycleOwner, {
-                val themeSetter = ThemeSetter(root)
-                themeSetter.setTheme(it)
-            })
+        if(Utils.isInternetAvailable(requireActivity())) {
+            with(mainViewModel) {
+                weatherData.observe(viewLifecycleOwner, {
+                    it?.apply {setWeatherDataUI(bnd, it)}
+                })
+                theme.observe(viewLifecycleOwner, {
+                    val themeSetter = ThemeSetter(root)
+                    themeSetter.setTheme(it)
+                })
+            }
+        } else {
+            bnd.pbMain.visibility = GONE
+            bnd.rlWeatherFragment.visibility = VISIBLE
         }
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if(bnd.pbMain.visibility == VISIBLE) {
+            viewLifecycleOwner.lifecycleScope.launch {
+                delay(5000)
+                if(mainViewModel.weatherData.value == null) {
+                    toast("Timeout reached, using preset values instead")
+                    bnd.pbMain.visibility = GONE
+                    bnd.rlWeatherFragment.visibility = VISIBLE
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -81,5 +108,9 @@ class WeatherFragment : Fragment() {
                 tvMaxTemp.text = "Max Temp: " + String.format("%.1f", main.temp_max).toString() + "°c"
             }
         }
+    }
+
+    private fun toast(msg: String) {
+        Toast.makeText(requireActivity(), msg, Toast.LENGTH_SHORT).show()
     }
 }

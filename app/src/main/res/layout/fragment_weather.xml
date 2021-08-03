@@ -110,7 +110,7 @@
                     android:fontFamily="@font/gotham_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Min Temp: 05:05 AM"
+                    android:text="Min Temp: 29.1°c"
                     android:textColor="@color/white" />
 
                 <Space
@@ -122,7 +122,7 @@
                     android:fontFamily="@font/gotham_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Max Temp: 05:05PM"
+                    android:text="Max Temp: 32.4°c"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
@@ -173,7 +173,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="06:40 AM"
+                        android:text="05:03 AM"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -212,7 +212,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="06:40 AM"
+                        android:text="06:40 PM"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -251,7 +251,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="06:40 AM"
+                        android:text="6.64 km/h"
                         android:textColor="@color/white"/>
 
                 </LinearLayout>
@@ -298,7 +298,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="06:40 AM"
+                        android:text="1009 hPa"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -337,7 +337,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="06:40 AM"
+                        android:text="69%"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
