@@ -7,7 +7,35 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_logout">Log out</string>
 
+    <!--    Weather Fragment subtitles for weather data-->
     <string name="menu_weather">Weather</string>
     <string name="menu_change_theme">Theme</string>
     <string name="menu_change_password">Password</string>
+    <string name="default_datetime">26 Jul 2021, 10:50 PM</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
+    <string name="wind">Wind</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="created_by">Created By</string>
+    <string name="team_4">Team 4</string>
+    <string name="divider">---------------------</string>
+    <string name="sunrise_image_description">sunrise_icon</string>
+    <string name="sunset_image_description">sunset time icon</string>
+    <string name="wind_image_description">wind icon</string>
+    <string name="pressure_image_description">pressure icon</string>
+    <string name="humidity_image_description">humidity icon</string>
+    <string name="created_by_image_description">Created by icon</string>
+
+    <!--    Default values for Weather Fragment TextViews-->
+    <string name="default_temperature">31°c</string>
+    <string name="default_weather_status">Clear Sky</string>
+    <string name="default_min_temperature">Min Temp: 29.1°c</string>
+    <string name="default_max_temperature">Max Temp: 32.4°c</string>
+    <string name="default_sunrise_time">05:03 AM</string>
+    <string name="default_sunset_time">06:40 PM</string>
+    <string name="default_wind">6.64 km/h</string>
+    <string name="default_pressure">1009 hPa</string>
+    <string name="default_humidity">69%</string>
+    <string name="default_address">CEBU, PH</string>
 </resources>

@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="40sp"
-                android:text="CEBU, PH"
+                android:text="@string/default_address"
                 android:textColor="@color/white" />
 
             <TextView
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="26 Jul 2021, 10:50 PM"
+                android:text="@string/default_datetime"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/gotham_medium"
-                android:text="31°c"
+                android:text="@string/default_temperature"
                 android:textColor="@color/white"
                 android:textSize="90sp" />
 
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/proxima_nova_soft"
-                android:text="---------------------"
+                android:text="@string/divider"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="30sp" />
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:text="Clear Sky"
+                android:text="@string/default_weather_status"
                 android:textColor="@color/white"
                 android:textSize="23sp" />
 
@@ -110,7 +110,7 @@
                     android:fontFamily="@font/gotham_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Min Temp: 29.1°c"
+                    android:text="@string/default_min_temperature"
                     android:textColor="@color/white" />
 
                 <Space
@@ -122,7 +122,7 @@
                     android:fontFamily="@font/gotham_medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Max Temp: 32.4°c"
+                    android:text="@string/default_max_temperature"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
@@ -155,7 +155,8 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/sunrise"
-                        app:tint="@color/white" />
+                        app:tint="@color/white"
+                        android:contentDescription="@string/sunrise_image_description" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -165,7 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="Sunrise"
+                        android:text="@string/sunrise"
                         android:textColor="@color/white"/>
 
                     <TextView
@@ -173,7 +174,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="05:03 AM"
+                        android:text="@string/default_sunrise_time"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -194,7 +195,8 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/sunset"
-                        app:tint="#FFFFFF" />
+                        app:tint="#FFFFFF"
+                        android:contentDescription="@string/sunset_image_description" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -204,7 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="Sunset"
+                        android:text="@string/sunset"
                         android:textColor="@color/white"/>
 
                     <TextView
@@ -212,7 +214,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="06:40 PM"
+                        android:text="@string/default_sunset_time"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -233,7 +235,8 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/wind"
-                        app:tint="@color/white" />
+                        app:tint="@color/white"
+                        android:contentDescription="@string/wind_image_description" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -243,7 +246,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="Wind"
+                        android:text="@string/wind"
                         android:textColor="@color/white"/>
 
                     <TextView
@@ -251,7 +254,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="6.64 km/h"
+                        android:text="@string/default_wind"
                         android:textColor="@color/white"/>
 
                 </LinearLayout>
@@ -280,7 +283,8 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/pressure"
-                        app:tint="@color/white" />
+                        app:tint="@color/white"
+                        android:contentDescription="@string/pressure_image_description" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -290,7 +294,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="Pressure"
+                        android:text="@string/pressure"
                         android:textColor="@color/white"/>
 
                     <TextView
@@ -298,7 +302,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="1009 hPa"
+                        android:text="@string/default_pressure"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -319,7 +323,8 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/humidity"
-                        app:tint="@color/white" />
+                        app:tint="@color/white"
+                        android:contentDescription="@string/humidity_image_description" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -329,7 +334,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="Humidity"
+                        android:text="@string/humidity"
                         android:textColor="@color/white"/>
 
                     <TextView
@@ -337,7 +342,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="69%"
+                        android:text="@string/default_humidity"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -358,7 +363,8 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/copyright"
-                        app:tint="@color/white" />
+                        app:tint="@color/white"
+                        android:contentDescription="@string/created_by_image_description" />
 
                     <Space
                         android:layout_width="wrap_content"
@@ -368,7 +374,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="Created By"
+                        android:text="@string/created_by"
                         android:textColor="@color/white"/>
 
                     <TextView
@@ -376,7 +382,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:text="Team 4"
+                        android:text="@string/team_4"
                         android:textColor="@color/white"/>
                 </LinearLayout>
             </LinearLayout>

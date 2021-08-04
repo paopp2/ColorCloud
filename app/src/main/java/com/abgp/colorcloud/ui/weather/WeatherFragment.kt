@@ -1,5 +1,6 @@
 package com.abgp.colorcloud.ui.weather
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,11 +19,8 @@ import com.abgp.colorcloud.utils.Utils
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
-import java.time.Duration
 import java.util.*
 import kotlin.math.round
-
-private const val TAG = "WeatherFragment"
 
 class WeatherFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
@@ -62,7 +60,11 @@ class WeatherFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launch {
                 delay(10000)
                 if(mainViewModel.weatherData.value == null) {
-                    toast("Timeout reached, using preset values instead")
+                    Toast.makeText(
+                        requireActivity(),
+                        "Timeout reached, using preset values instead",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     bnd.pbMain.visibility = GONE
                     bnd.rlWeatherFragment.visibility = VISIBLE
                 }
@@ -75,6 +77,7 @@ class WeatherFragment : Fragment() {
         _binding = null
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setWeatherDataUI(bnd: FragmentWeatherBinding, weatherData: WeatherData) {
         with(weatherData) {
             with(bnd) {
@@ -104,13 +107,9 @@ class WeatherFragment : Fragment() {
                 tvWind.text = wind.speed.toString() + " km/h"
                 tvAddress.text = name + ", " + sys.country
                 tvTemperature.text = round(main.temp).toInt().toString() + "°c"
-                tvMinTemp.text = "Min Temp: " + String.format("%.1f", main.temp_min).toString() + "°c"
-                tvMaxTemp.text = "Max Temp: " + String.format("%.1f", main.temp_max).toString() + "°c"
+                tvMinTemp.text = "Min Temp: " + String.format("%.1f", main.temp_min) + "°c"
+                tvMaxTemp.text = "Max Temp: " + String.format("%.1f", main.temp_max) + "°c"
             }
         }
-    }
-
-    private fun toast(msg: String) {
-        Toast.makeText(requireActivity(), msg, Toast.LENGTH_SHORT).show()
     }
 }
