@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
                 toast("Welcome ${user.name}")
                 sharedPrefServices.setCurrentUser(user.name)
                 val intent = Intent(this, MainActivity::class.java)
+                finishAffinity()
                 startActivity(intent)
             } else {
                 toast("Access Denied")

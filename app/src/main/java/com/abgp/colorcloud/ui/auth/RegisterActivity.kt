@@ -30,6 +30,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 toast("Welcome ${newUser.name}")
                 val intent = Intent(this, MainActivity::class.java)
+                finishAffinity()
                 startActivity(intent)
             } else {
                 toast("Passwords do not match")

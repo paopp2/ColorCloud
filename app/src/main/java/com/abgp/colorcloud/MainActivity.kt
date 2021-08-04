@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         if(currentUser == null) {
             finish()
             val intent = Intent(this, LoginActivity::class.java)
+            finishAffinity()
             startActivity(intent)
         } else {
             headerView.tvNameNavDrawer.text = currentUser.name
@@ -176,6 +177,7 @@ class MainActivity : AppCompatActivity() {
                 val sharedPrefServices = SharedPrefServices(this)
                 sharedPrefServices.removeCurrentUser()
                 val intent = Intent(this, LoginActivity::class.java)
+                finishAffinity()
                 startActivity(intent)
                 true
             }
