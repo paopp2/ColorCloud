@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Choose Theme"
+            android:text="@string/change_theme_title"
             android:textColor="@color/white"
             android:fontFamily="@font/gotham_medium"
             android:layout_marginBottom="30dp"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="30dp"
                     android:paddingLeft="12dp"
-                    android:text="Roseanna"
+                    android:text="@string/roseanna"
                     android:textSize="21sp" />
 
                 <RadioButton
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="30dp"
                     android:paddingLeft="12dp"
-                    android:text="Glacier"
+                    android:text="@string/glacier"
                     android:textSize="21sp" />
 
                 <RadioButton
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="30dp"
                     android:paddingLeft="12dp"
-                    android:text="Dusk"
+                    android:text="@string/dusk"
                     android:textSize="21sp" />
 
                 <RadioButton
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="30dp"
                     android:paddingLeft="12dp"
-                    android:text="Void"
+                    android:text="@string/void_text"
                     android:textSize="21sp" />
 
                 <RadioButton
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="30dp"
                     android:paddingLeft="12dp"
-                    android:text="Borealis"
+                    android:text="@string/borealis"
                     android:textSize="21sp" />
             </RadioGroup>
 
@@ -144,15 +144,8 @@
                     android:layout_height="80dp"
                     android:layout_marginTop="12dp"
                     android:src="@drawable/borealis" />
-
-
             </LinearLayout>
-
         </LinearLayout>
-
-
-
-
     </LinearLayout>
 
 

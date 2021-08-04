@@ -38,4 +38,41 @@
     <string name="default_pressure">1009 hPa</string>
     <string name="default_humidity">69%</string>
     <string name="default_address">CEBU, PH</string>
+
+    <!--    Login Activity subtitles-->
+    <string name="reg_user_accts">Registered User Accounts</string>
+    <string name="log_subtext">Cannot recognize any of the accounts listed above? Register to get started.</string>
+    <string name="reg_button">Create New Account</string>
+    <string name="recycler_view_user">User</string>
+
+    <!--    Register Activity subtitles-->
+    <string name="register">Register</string>
+    <string name="reg_username">Username</string>
+    <string name="password">Password</string>
+    <string name="reg_conf_password">Confirm Password</string>
+    <string name="reg_button_now">Register now</string>
+
+    <!--    Alert Dialog texts-->
+    <string name="enter_password">Enter your password.</string>
+    <string name="login">Login</string>
+
+    <!--    Password Fragment subtitles-->
+    <string name="change_password">Change Password</string>
+    <string name="change_pass_subtext">It is a good idea to use a strong password that you are not using elsewhere.</string>
+    <string name="current_pass">Current Password</string>
+    <string name="new_pass">New Password</string>
+    <string name="conf_new_pass">Confirm New Password</string>
+
+    <!--    Theme Fragment subtitles-->
+    <string name="change_theme_title">Choose Theme</string>
+    <string name="roseanna">Roseanna</string>
+    <string name="glacier">Glacier</string>
+    <string name="dusk">Dusk</string>
+    <string name="void_text">Void</string>
+    <string name="borealis">Borealis</string>
+
+    <!--    Navigation View subtitles-->
+    <string name="hello">Hello!</string>
+
+
 </resources>

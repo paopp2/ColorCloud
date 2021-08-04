@@ -21,7 +21,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ColorCloud"
+        android:text="@string/app_name"
         android:fontFamily="@font/cera_pro_black"
         android:textColor="@color/black"
         android:textSize="40sp"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:layout_marginTop="5dp"
-        android:text="Hello!"
+        android:text="@string/hello"
         android:textSize="18sp"
         android:textColor="#686868"
         android:fontFamily="@font/proxima_nova_soft"
@@ -46,7 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/proxima_nova_soft"
-        android:text="insert_name_here"
         android:textColor="@color/black"
         android:textSize="23sp" />
 
