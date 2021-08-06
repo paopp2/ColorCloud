@@ -126,265 +126,269 @@
                     android:text="@string/default_max_temperature"
                     android:textColor="@color/white" />
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llDetailsContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="40dp"
-            android:paddingHorizontal="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:background="#3CF1EBF1">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/sunrise"
-                        app:tint="@color/white"
-                        android:contentDescription="@string/sunrise_image_description" />
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="5dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/sunrise"
-                        android:textColor="@color/white"/>
-
-                    <TextView
-                        android:id="@+id/tvTimeSunrise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:text="@string/default_sunrise_time"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:background="#3CF1EBF1">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/sunset"
-                        app:tint="#FFFFFF"
-                        android:contentDescription="@string/sunset_image_description" />
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="5dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/sunset"
-                        android:textColor="@color/white"/>
-
-                    <TextView
-                        android:id="@+id/tvTimeSunset"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:text="@string/default_sunset_time"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:background="#3CF1EBF1">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/wind"
-                        app:tint="@color/white"
-                        android:contentDescription="@string/wind_image_description" />
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="5dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/wind"
-                        android:textColor="@color/white"/>
-
-                    <TextView
-                        android:id="@+id/tvWind"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:text="@string/default_wind"
-                        android:textColor="@color/white"/>
-
-                </LinearLayout>
-            </LinearLayout>
 
             <Space
-                android:layout_width="wrap_content"
-                android:layout_height="10dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="25dp" />
 
             <LinearLayout
+                android:id="@+id/llDetailsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="3">
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp"
+                android:paddingHorizontal="10dp">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:background="#3CF1EBF1">
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/pressure"
-                        app:tint="@color/white"
-                        android:contentDescription="@string/pressure_image_description" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="#3CF1EBF1">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/sunrise"
+                            app:tint="@color/white"
+                            android:contentDescription="@string/sunrise_image_description" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="@string/sunrise"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/tvTimeSunrise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/default_sunrise_time"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
 
                     <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="5dp"/>
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/pressure"
-                        android:textColor="@color/white"/>
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="#3CF1EBF1">
 
-                    <TextView
-                        android:id="@+id/tvPressure"
-                        android:layout_width="wrap_content"
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/sunset"
+                            app:tint="#FFFFFF"
+                            android:contentDescription="@string/sunset_image_description" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="@string/sunset"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/tvTimeSunset"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/default_sunset_time"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:text="@string/default_pressure"
-                        android:textColor="@color/white"/>
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="#3CF1EBF1">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/wind"
+                            app:tint="@color/white"
+                            android:contentDescription="@string/wind_image_description" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="@string/wind"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/tvWind"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/default_wind"
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"/>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:background="#3CF1EBF1">
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/humidity"
-                        app:tint="@color/white"
-                        android:contentDescription="@string/humidity_image_description" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="#3CF1EBF1">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/pressure"
+                            app:tint="@color/white"
+                            android:contentDescription="@string/pressure_image_description" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="@string/pressure"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/tvPressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/default_pressure"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
 
                     <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="5dp"/>
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/humidity"
-                        android:textColor="@color/white"/>
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="#3CF1EBF1">
 
-                    <TextView
-                        android:id="@+id/tvHumidity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:text="@string/default_humidity"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/humidity"
+                            app:tint="@color/white"
+                            android:contentDescription="@string/humidity_image_description" />
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"/>
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="5dp"/>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:background="#3CF1EBF1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="@string/humidity"
+                            android:textColor="@color/white"/>
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/copyright"
-                        app:tint="@color/white"
-                        android:contentDescription="@string/created_by_image_description" />
+                        <TextView
+                            android:id="@+id/tvHumidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/default_humidity"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
 
                     <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="5dp"/>
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="@string/created_by"
-                        android:textColor="@color/white"/>
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="#3CF1EBF1">
 
-                    <TextView
-                        android:id="@+id/about"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:text="@string/team_4"
-                        android:textColor="@color/white"/>
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/copyright"
+                            app:tint="@color/white"
+                            android:contentDescription="@string/created_by_image_description" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="5dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text="@string/created_by"
+                            android:textColor="@color/white"/>
+
+                        <TextView
+                            android:id="@+id/about"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="@string/team_4"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
