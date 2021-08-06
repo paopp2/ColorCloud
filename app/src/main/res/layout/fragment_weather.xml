@@ -47,7 +47,7 @@
                 android:textSize="40sp"
                 android:text="@string/default_address"
                 android:textColor="@color/white"
-                android:gravity="center_horizontal" />
+                android:gravity="center" />
 
             <TextView
                 android:layout_marginTop="10dp"
